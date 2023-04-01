@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// create global var DB
 var DB *gorm.DB
 
 func DatabaseInit() {
@@ -25,6 +26,7 @@ func DatabaseInit() {
 	//migration models to database
 	err = DB.AutoMigrate(
 		&models.User{},
+		&models.Article{},
 	)
 	if err != nil {
 		fmt.Println(err)
